@@ -90,7 +90,6 @@ class LoginPageOwner extends StatelessWidget {
                   ],
                 ),
               ),
-            
             ],
           ),
         ),

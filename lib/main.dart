@@ -9,26 +9,17 @@ void main() {
 }
 
 class GeoFence extends StatelessWidget {
-const GeoFence({ Key? key }) : super(key: key);
+  const GeoFence({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'GeoFence',
       // home:  RegistrationPage(),
       routes: {
-        '/':(context) => HomePage(),
-        
-
+        '/': (context) => HomePage(),
       },
-
-
-
-
     );
   }
 }
-
-
-  

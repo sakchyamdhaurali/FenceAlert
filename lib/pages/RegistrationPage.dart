@@ -26,8 +26,6 @@ class RegistrationPage extends StatelessWidget {
             SizedBox(
               height: 19,
             ),
-           
-           
             Container(
               child: TextFormField(
                 decoration: const InputDecoration(
@@ -36,8 +34,6 @@ class RegistrationPage extends StatelessWidget {
                 ),
               ),
             ),
-           
-           
             Container(
               child: TextFormField(
                 decoration: const InputDecoration(
@@ -52,121 +48,88 @@ class RegistrationPage extends StatelessWidget {
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
                   labelText: 'Password',
-                  
                 ),
               ),
             ),
-
-
             Container(
               child: TextFormField(
                 obscureText: true,
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
                   labelText: 'Confirm Password',
-                  
                 ),
               ),
-
-                       
             ),
-          
-          SizedBox(height: 44,),
-
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 82),
-            child: Center(
-              child: Container(
-                
-                width: 147,
-                height: 51,
-                decoration: BoxDecoration(
-                  color: Color(0xFF2D201C),
-                  
-                borderRadius: BorderRadius.circular(26.5),
+            SizedBox(
+              height: 44,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 82),
+              child: Center(
+                child: Container(
+                  width: 147,
+                  height: 51,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF2D201C),
+                    borderRadius: BorderRadius.circular(26.5),
+                  ),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()),
+                      );
+                    },
+                    child: Text(
+                      'Sign Up ',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
                 ),
-            
-                      child:  
-              TextButton(onPressed: (){
-                Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
-              );
-              }, child: 
-               Text('Sign Up ',
-              style: TextStyle(
-                    
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400,
-            
-              ),          
-              ),
-              
-              
-              ),
-            
-               
               ),
             ),
-
-            
-          ),
-          
-          SizedBox(height: 75,),
-
-          Center(
-            
-            
-            child: Row(
+            SizedBox(
+              height: 75,
+            ),
+            Center(
+                child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Already have an account? ' ,
-          style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.w400,
+                Text(
+                  'Already have an account? ',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
 
-          ),          
-          ),
+                // onTap: () => MaterialPageRoute(builder: (context)=> LoginPage()),
 
- 
-      // onTap: () => MaterialPageRoute(builder: (context)=> LoginPage()),
-            
-            TextButton(onPressed: (){
-              Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const LoginPage()),
-  );
-            }, child: 
-             Text('Log In ' ,
-            style: TextStyle(
-                  
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400,
-
-            ),          
-            ),
-  
-            
-            ),
-           
-
-
-
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()),
+                    );
+                  },
+                  child: Text(
+                    'Log In ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
               ],
-            )
-          
-          
-          
-          
-          ),
-
-
-
-
-
+            )),
           ],
         ),
       ),
