@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:geofence/pages/LoginPage.dart';
 import 'package:geofence/pages/LoginPageOwner.dart';
 
-import 'package:geofence/pages/RegistrationPage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

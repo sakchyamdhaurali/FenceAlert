@@ -44,6 +44,7 @@ class _UserScreenState extends State<UserScreen> {
                       color: Color(0xFF475269),
                     ),
                   ),
+
                   Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
@@ -155,7 +156,6 @@ class _UserScreenState extends State<UserScreen> {
        ),
       )),
       bottomNavigationBar: BottomNavigationBar(
-            // backgroundColor: Colors.blue,
 currentIndex: _currentindex,
 type: BottomNavigationBarType.fixed,
 iconSize: 28,
@@ -165,7 +165,7 @@ backgroundColor: Colors.white,
           BottomNavigationBarItem(
             icon: Icon(Icons.home,),
             label: 'Home',
-
+             
  ),
 
   BottomNavigationBarItem(

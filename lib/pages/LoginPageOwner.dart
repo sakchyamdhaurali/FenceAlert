@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:geofence/pages/OwnerScreen.dart';
-import 'package:geofence/pages/RegistrationPage.dart';
 
 class LoginPageOwner extends StatelessWidget {
   const LoginPageOwner({Key? key}) : super(key: key);

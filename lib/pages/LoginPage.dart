@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:geofence/pages/RegistrationPage.dart';
 import 'package:geofence/pages/UserScreen.dart';
 
+import 'Forgot_Password.dart';
+
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -49,7 +51,11 @@ class LoginPage extends StatelessWidget {
                 height: 35,
               ),
               GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                    ForgotPassword() )
+                    );
+                  },
                   child: Text(
                     'Forgot Password?',
                     style: TextStyle(color: Colors.black),
@@ -105,8 +111,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
 
-                    // onTap: () => MaterialPageRoute(builder: (context)=> LoginPage()),
-
+                    
                     TextButton(
                       onPressed: () {
                         Navigator.push(
