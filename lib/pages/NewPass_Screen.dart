@@ -102,9 +102,9 @@ final _passwordController = TextEditingController();
         new FlutterPwValidator(
             controller: _passwordController,
             minLength: 6,
-            uppercaseCharCount: 2,
+            uppercaseCharCount: 1,
             lowercaseCharCount: 2,
-            numericCharCount: 3,
+            numericCharCount: 1,
             specialCharCount: 1,
             width: 400,
             height: 150,
@@ -118,7 +118,7 @@ final _passwordController = TextEditingController();
         SizedBox(height: 20,),
         Container(
                   child: TextFormField(
-                    
+                    controller: _passwordController,
                     obscureText: isToggle,
                     
                     decoration:  InputDecoration(
@@ -137,7 +137,22 @@ final _passwordController = TextEditingController();
                     ),
                   ),
                 ),
-        
+         new FlutterPwValidator(
+            controller: _passwordController,
+            minLength: 6,
+            uppercaseCharCount: 1,
+            lowercaseCharCount: 2,
+            numericCharCount: 1,
+            specialCharCount: 1,
+            width: 400,
+            height: 150,
+            onSuccess: (){
+              print('Success');
+            },
+            onFail:(){
+              print('Fail');
+            },
+        ),
         SizedBox(height: 55,),
         
         
