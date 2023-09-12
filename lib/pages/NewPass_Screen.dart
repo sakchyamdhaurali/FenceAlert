@@ -1,21 +1,23 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
+import 'package:geofence/pages/LoginPage.dart';
 
 class NewPassScreen extends StatefulWidget {
-
   @override
   State<NewPassScreen> createState() => _NewPassScreenState();
 }
 
 class _NewPassScreenState extends State<NewPassScreen> {
-bool isObscured = true;
-bool isToggle = true;
-final _passwordController = TextEditingController();
-  
+  bool isObscured = true;
+  bool isToggle = true;
+  final _passwordController = TextEditingController();
+  final _confirmController = TextEditingController();
 
   @override
-  Widget build(BuildContext context){
-     return Scaffold(
+  Widget build(BuildContext context) {
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -63,8 +65,7 @@ final _passwordController = TextEditingController();
                   height: 10,
                 ),
                 Text(
-        
-        'Your new password must be different from previously used password',
+                  'Your new password must be different from previously used password',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 16,
@@ -76,93 +77,87 @@ final _passwordController = TextEditingController();
                 SizedBox(
                   height: 58,
                 ),
-        Container(
-          
+                Container(
                   child: TextFormField(
                     controller: _passwordController,
                     obscureText: isObscured,
-                    decoration:  InputDecoration(
+                    decoration: InputDecoration(
                       // border: UnderlineInputBorder(),
                       hintText: 'New Password',
                       prefixIcon: Icon(Icons.lock),
                       suffixIcon: IconButton(
                         onPressed: () {
-                         setState(() {
-                           isObscured=!isObscured;
-                         });
+                          setState(() {
+                            isObscured = !isObscured;
+                          });
                         },
-                        icon: isObscured? Icon(Icons.visibility_off):Icon(Icons.visibility),
+                        icon: isObscured
+                            ? Icon(Icons.visibility_off)
+                            : Icon(Icons.visibility),
                       ),
-                      
                     ),
                   ),
                 ),
-        
-        
-        new FlutterPwValidator(
-            controller: _passwordController,
-            minLength: 6,
-            uppercaseCharCount: 1,
-            lowercaseCharCount: 2,
-            numericCharCount: 1,
-            specialCharCount: 1,
-            width: 400,
-            height: 150,
-            onSuccess: (){
-              print('Success');
-            },
-            onFail:(){
-              print('Fail');
-            },
-        ),
-        SizedBox(height: 20,),
-        Container(
+                new FlutterPwValidator(
+                  controller: _passwordController,
+                  minLength: 6,
+                  uppercaseCharCount: 1,
+                  lowercaseCharCount: 2,
+                  numericCharCount: 1,
+                  specialCharCount: 1,
+                  width: 400,
+                  height: 150,
+                  onSuccess: () {
+                    print('Success');
+                  },
+                  onFail: () {
+                    print('Fail');
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
                   child: TextFormField(
-                    controller: _passwordController,
+                    controller: _confirmController,
                     obscureText: isToggle,
-                    
-                    decoration:  InputDecoration(
+                    decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),
-        
                       hintText: 'Confirm Password',
-        
-                      suffixIcon: IconButton(onPressed:
-                       (){
-        setState(() {
-          isToggle=!isToggle;
-        });
-                       },
-                      icon: isToggle? Icon(Icons.visibility_off): Icon(Icons.visibility),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isToggle = !isToggle;
+                          });
+                        },
+                        icon: isToggle
+                            ? Icon(Icons.visibility_off)
+                            : Icon(Icons.visibility),
                       ),
                     ),
                   ),
                 ),
-         new FlutterPwValidator(
-            controller: _passwordController,
-            minLength: 6,
-            uppercaseCharCount: 1,
-            lowercaseCharCount: 2,
-            numericCharCount: 1,
-            specialCharCount: 1,
-            width: 400,
-            height: 150,
-            onSuccess: (){
-              print('Success');
-            },
-            onFail:(){
-              print('Fail');
-            },
-        ),
-        SizedBox(height: 55,),
-        
-        
-        
-        
-               
-        
-        
+                new FlutterPwValidator(
+                  controller: _confirmController,
+                  minLength: 6,
+                  uppercaseCharCount: 1,
+                  lowercaseCharCount: 2,
+                  numericCharCount: 1,
+                  specialCharCount: 1,
+                  width: 400,
+                  height: 150,
+                  onSuccess: () {
+                    print('Success');
+                  },
+                  onFail: () {
+                    print('Fail');
+                  },
+                ),
+                SizedBox(
+                  height: 55,
+                ),
                 Padding(
-                  padding: const EdgeInsets.only(top:60.0),
+                  padding: const EdgeInsets.only(top: 60.0),
                   child: Center(
                     child: Container(
                       width: 147,
@@ -173,7 +168,91 @@ final _passwordController = TextEditingController();
                       ),
                       child: TextButton(
                         onPressed: () {
-                       print('Confirmed');
+                          
+                         showModalBottomSheet(
+                          
+                           shape: RoundedRectangleBorder(
+     borderRadius: BorderRadius.circular(40.0),
+  ),
+                                context: context,
+                                builder: (context) {
+                                  return SizedBox(
+                                    
+                                    height: 350,
+                                    
+                                    child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                        
+                                          Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(bottom: 30),
+                                                child: Image.asset('assets/8.png',scale: 3,),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(bottom: 5),
+                                                child: Text(
+                                                  'Your Password has been changed',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF332118),
+                                                    fontSize: 18,
+                                                    fontFamily:
+                                                        'Product Sans Medium',
+                                                    fontWeight: FontWeight.w500,
+                                                    height: 1.29,
+                                                    letterSpacing: -0.41,
+                                                  ),
+                                                ),
+                                              ),
+                                            
+                                            
+                                              Padding(
+                                                padding: const EdgeInsets.only(top: 10.0,bottom: 20),
+                                                child: Text(
+                                                  'Welcome back! Discover now',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF332118),
+                                                    fontSize: 14,
+                                                    fontFamily:
+                                                        'Product Sans Medium',
+                                                    fontWeight: FontWeight.w400,
+                                                    letterSpacing: -0.12,
+                                                  ),
+                                                ),
+                                              ),
+
+
+                                    ElevatedButton(
+                                      
+                                      style: ElevatedButton.styleFrom(
+                                        
+                                        padding: EdgeInsets.symmetric(horizontal: 100,vertical: 20),
+                                        backgroundColor: Colors.black,
+                                       shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                       ),
+                                      ),
+                                      onPressed: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                                    },
+                                     child: Text('Browse home',
+                                     style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white
+                                     ),
+                                     
+                                     ),
+                                    
+                                    ),
+
+                                            ],
+                                          ),
+                                        ]),
+                                  );
+                                });
                         },
                         child: Text(
                           'Confirm',
@@ -187,7 +266,6 @@ final _passwordController = TextEditingController();
                     ),
                   ),
                 ),
-        
               ],
             ),
           ),
